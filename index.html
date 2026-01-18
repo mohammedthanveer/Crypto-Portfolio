@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Portfolio | Solana Ecosystem</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        solana: {
+                            base: '#000000',
+                            purple: '#9945FF',
+                            green: '#14F195',
+                            dark: '#1B1B1B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 10px #9945FF20' },
+                            '100%': { boxShadow: '0 0 25px #14F19540' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <nav class="fixed top-0 w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-display font-bold text-xl tracking-wider text-white">
+                0x<span class="text-solana-purple">ANON</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#skills" class="hover:text-solana-green transition-colors">Skills</a>
+                <a href="#certifications" class="hover:text-solana-green transition-colors">Certifications</a>
+            </div>
+            <a href="https://x.com/sneakypeek13" target="_blank" class="flex items-center gap-2 border border-white/20 px-4 py-2 rounded-full text-xs hover:border-solana-green hover:text-solana-green transition-all">
+                <i data-lucide="twitter" class="w-3 h-3"></i>
+                <span>@sneakypeek13</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <canvas id="canvas-bg"></canvas>
+        
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-solana-purple rounded-full mix-blend-screen filter blur-[128px] opacity-20 blob"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-solana-green rounded-full mix-blend-screen filter blur-[128px] opacity-10 blob" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto animate-fade-in-up fade-in">
+            <div class="inline-block px-4 py-2 mb-6 border border-solana-purple/50 rounded-full bg-gradient-to-r from-solana-purple/20 to-solana-green/10 backdrop-blur-xl border-animated">
+                <span class="text-xs font-mono text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green tracking-widest uppercase animate-pulse">✨ Solana Native • 2 Years Active ✨</span>
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl font-black mb-6 leading-tight text-white text-shimmer">
+                HealFi <span class="text-gradient-purple inline-block">Professional</span>
+            </h1>
+            
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text text-transparent">
+                Strategic healthcare leader with expertise in hospital administration, quality management, and operational excellence. Committed to transforming healthcare delivery through innovative leadership.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#experience" class="group px-8 py-4 bg-gradient-to-r from-white to-gray-200 text-black font-bold rounded-xl hover:scale-110 transition-all duration-300 btn-neon relative overflow-hidden shadow-xl hover:shadow-2xl">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                        Explore Experience
+                    </span>
+                </a>
+                <a href="https://x.com/sneakypeek13" target="_blank" class="px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:border-solana-purple hover:bg-solana-purple/10 transition-all duration-300 backdrop-blur-sm">
+                    Read Market Commentary
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 border-y border-white/5 bg-black/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-display font-bold text-white counter" data-target="2">2</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-2">Years Active</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-display font-bold text-white">SOL</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-2">Primary Chain</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-display font-bold text-white counter" data-target="15">0</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-2">Protocols Tracked</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-display font-bold text-white">24/7</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-2">On-Chain Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white">
+                <span class="text-solana-purple">EDUCATION</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-2">MBA - Hospital Management & HR</h3>
+                </div>
+                <div class="glass-card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-2">Bachelor of Dental Surgery (B.D.S.)</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white text-shimmer">
+                <span class="text-gradient-purple">SKILLS & EXPERTISE</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-ultra p-6 rounded-2xl card-hover border-animated">
+                    <h3 class="text-solana-green font-bold mb-4 uppercase text-sm underline-animate">Core Competencies</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Healthcare Management</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Leadership Quality</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Strategic Planning</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Data Analysis</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Teamwork</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Problem Solving</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-ultra p-6 rounded-2xl card-hover border-animated">
+                    <h3 class="text-solana-green font-bold mb-4 uppercase text-sm underline-animate">Technical Tools</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Microsoft PowerPoint</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Microsoft Excel</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Microsoft Word</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">ChatGPT</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">GROK AI</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-ultra p-6 rounded-2xl card-hover border-animated">
+                    <h3 class="text-solana-green font-bold mb-4 uppercase text-sm underline-animate">Languages</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Tamil</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">English</span>
+                        </li>
+                        <li class="flex items-center gap-3 hover:text-solana-green transition-colors group">
+                            <div class="w-2 h-2 bg-gradient-to-r from-solana-purple to-solana-green rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="group-hover:translate-x-2 transition-transform">Hindi</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section id="about" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white">
+                <span class="text-solana-purple">PROFESSIONAL SUMMARY</span>
+            </h2>
+            <div class="glass-card p-8 rounded-xl">
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    With a robust foundation in medicine and specialized expertise in hospital administration and human resources, I am committed to transforming healthcare delivery through strategic leadership and innovation. My goal is to bridge clinical excellence with operational effectiveness—driving initiatives that elevate patient care, streamline processes, and foster sustainable, high-impact outcomes across healthcare systems.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white">
+                <span class="text-solana-purple">CERTIFICATIONS</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="award" class="text-solana-green w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Lean Six Sigma Yellow Belt</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="award" class="text-solana-green w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Sustainable Business Development – NPTEL</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="award" class="text-solana-green w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Antibiotic Stewardship Programme - WHO</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="award" class="text-solana-green w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Human Behavior – NPTEL</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-zinc-950/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Focus <span class="text-solana-green">Areas</span></h2>
+                <p class="text-gray-400">Where capital and attention are deployed.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-xl group">
+                    <div class="w-12 h-12 rounded-full bg-solana-purple/10 flex items-center justify-center mb-6 group-hover:bg-solana-purple/20 transition-colors">
+                        <i data-lucide="candlestick-chart" class="text-solana-purple w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Yield Strategies</h3>
+                    <p class="text-gray-400 text-sm mb-4">Leveraging lending/borrowing markets on Solana. Focusing on sustainable APY over inflationary token rewards.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-solana-green rounded-full"></div>Looping Strategies</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-solana-green rounded-full"></div>Liquid Staking (LSTs)</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl group">
+                    <div class="w-12 h-12 rounded-full bg-solana-green/10 flex items-center justify-center mb-6 group-hover:bg-solana-green/20 transition-colors">
+                        <i data-lucide="arrow-left-right" class="text-solana-green w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Concentrated Liquidity</h3>
+                    <p class="text-gray-400 text-sm mb-4">Active management of LP positions on CLMM DEXs. Mathematical approach to range setting and impermanent loss mitigation.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-solana-purple rounded-full"></div>Tight Range Provision</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-solana-purple rounded-full"></div>Fee Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl group">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                        <i data-lucide="file-search" class="text-white w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Protocol Evaluation</h3>
+                    <p class="text-gray-400 text-sm mb-4">Forensic analysis of new protocols. Auditing code (where public), team multisig structures, and emission schedules.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-gray-400 rounded-full"></div>Risk Assessment</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-gray-400 rounded-full"></div>Infrastructure Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HealFi Professional Crypto Assets -->
+    <section class="py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">HealFi <span class="text-solana-green">Professional Tokens</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Unique blockchain assets aligned with healthcare innovation and professional development</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Token 1: MEDCARE -->
+                <div class="glass-card p-8 rounded-xl group hover:border-solana-purple/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-solana-purple/20 to-solana-green/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-solana-green">✦</span>
+                        </div>
+                        <span class="text-xs font-mono text-solana-green uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MedCare Protocol</h3>
+                    <p class="text-gray-400 text-sm mb-4">Decentralized healthcare records and patient data management with privacy-first architecture.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">MEDCARE</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Health Records</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">High Impact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token 2: DOCTOKEN -->
+                <div class="glass-card p-8 rounded-xl group hover:border-solana-green/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-solana-green/20 to-white/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-solana-purple">⚕</span>
+                        </div>
+                        <span class="text-xs font-mono text-solana-purple uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">DocToken</h3>
+                    <p class="text-gray-400 text-sm mb-4">Professional credential marketplace for healthcare providers with verified credentials and expertise tracking.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">DOCTKN</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Credentials</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">Medium-High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token 3: HEALTHDAO -->
+                <div class="glass-card p-8 rounded-xl group hover:border-white/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-white/20 to-solana-purple/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-white">◆</span>
+                        </div>
+                        <span class="text-xs font-mono text-white/80 uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">HealthDAO</h3>
+                    <p class="text-gray-400 text-sm mb-4">Community-governed protocol for collaborative healthcare research, clinical trials, and medical innovation.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">HDAO</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Governance</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">Emerging</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token 4: PHARMACHAIN -->
+                <div class="glass-card p-8 rounded-xl group hover:border-solana-green/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-solana-purple/20 to-white/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-solana-green">♦</span>
+                        </div>
+                        <span class="text-xs font-mono text-solana-green uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">PharmaChain</h3>
+                    <p class="text-gray-400 text-sm mb-4">Supply chain tracking for pharmaceuticals with anti-counterfeiting measures and real-time monitoring.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">PHARMA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Supply Chain</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">High Impact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token 5: WELLNESS -->
+                <div class="glass-card p-8 rounded-xl group hover:border-solana-purple/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-solana-green/20 to-solana-purple/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-solana-purple">●</span>
+                        </div>
+                        <span class="text-xs font-mono text-solana-purple uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">WellnessToken</h3>
+                    <p class="text-gray-400 text-sm mb-4">Preventive healthcare incentive protocol rewarding healthy lifestyle choices and wellness milestones.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">WELL</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Health Incentives</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">Medium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token 6: MEDSYNC -->
+                <div class="glass-card p-8 rounded-xl group hover:border-white/60 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-white/20 to-solana-green/20 flex items-center justify-center">
+                            <span class="text-lg font-bold text-white">✧</span>
+                        </div>
+                        <span class="text-xs font-mono text-white/80 uppercase">SOL Chain</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MedSync Protocol</h3>
+                    <p class="text-gray-400 text-sm mb-4">Interoperability platform connecting healthcare systems, enabling seamless data exchange and integration.</p>
+                    <div class="space-y-2 text-xs text-gray-500">
+                        <div class="flex justify-between">
+                            <span>Symbol:</span>
+                            <span class="text-solana-green font-mono">MSYNC</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Use Case:</span>
+                            <span class="text-gray-300">Integration</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Potential:</span>
+                            <span class="text-solana-purple">High Impact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-gradient-to-r from-solana-purple/5 to-solana-green/5 border border-solana-purple/20 rounded-lg text-center">
+                <p class="text-gray-300 text-sm">These healthcare-focused tokens represent innovative approaches to solving challenges in patient care, data management, professional development, and healthcare infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stack" class="py-24">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="font-display text-2xl font-bold mb-12 text-gray-300">Tooling & Infrastructure</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Solana CLI
+                </span>
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Dune Analytics
+                </span>
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Birdeye
+                </span>
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Phantom / Backpack
+                </span>
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Python (Data Scripts)
+                </span>
+                <span class="px-6 py-3 border border-white/10 rounded-lg text-gray-400 bg-white/5 text-sm font-mono hover:text-solana-green hover:border-solana-green transition-colors cursor-default">
+                    Rugcheck.xyz
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTERACTIVE STATISTICS ===== -->
+    <section class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white text-center text-shimmer">
+                <span class="text-gradient-purple">Quick Snapshot</span>
+            </h2>
+            <div id="interactiveStats"></div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE PACKAGES ===== -->
+    <section class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-4 text-white text-center text-shimmer">
+                <span class="text-gradient-purple">Service Packages</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                Tailored solutions for your healthcare leadership and operational needs
+            </p>
+            <div id="servicesContainer"></div>
+        </div>
+    </section>
+
+    <!-- ===== RECRUITER QUICK MATCH ===== -->
+    <section class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-4 text-white text-center text-shimmer">
+                <span class="text-gradient-purple">Perfect Role Matches</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                Career opportunities aligned with expertise and experience
+            </p>
+            <div id="recruiterMatches"></div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENT TESTIMONIALS ===== -->
+    <section class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white text-center text-shimmer">
+                <span class="text-gradient-purple">Client Testimonials</span>
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <div id="testimonialsCarousel"></div>
+                <div class="flex justify-center gap-4 mt-8">
+                    <button id="prevTestimonial" class="group p-3 rounded-full bg-white/10 hover:bg-solana-purple/20 border border-white/20 transition-all">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-solana-green group-hover:text-white"></i>
+                    </button>
+                    <button id="nextTestimonial" class="group p-3 rounded-full bg-white/10 hover:bg-solana-purple/20 border border-white/20 transition-all">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-solana-green group-hover:text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/10 bg-gradient-to-b from-black to-zinc-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold text-white mb-6">Stay On The <span class="text-solana-purple">Bleeding Edge</span></h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+                I share real-time market thoughts, on-chain discoveries, and protocol breakdowns exclusively on X.
+            </p>
+            
+            <a href="https://x.com/sneakypeek13" target="_blank" class="inline-flex items-center gap-3 px-8 py-5 bg-white text-black font-bold text-lg rounded-xl hover:bg-solana-green hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(20,241,149,0.4)]">
+                <i data-lucide="twitter" class="w-6 h-6"></i>
+                Follow @sneakypeek13
+            </a>
+            
+            <div class="mt-16 text-xs text-gray-600 font-mono">
+                &copy; 2026 0xANON. Not Financial Advice. Research Purposes Only.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="email.js"></script>
+</body>
+</html>
