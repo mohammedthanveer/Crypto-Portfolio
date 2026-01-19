@@ -1,43 +1,9 @@
 // ==========================================
-// SERVICE PACKAGES DATA
-// ==========================================
-const servicePackages = [
-    {
-        name: 'Strategic Consultation',
-        price: '$150/hr',
-        description: 'Expert guidance on healthcare operations, organizational strategy, and leadership development',
-        features: ['Hospital Administration', 'Quality Management', 'Change Management'],
-        icon: 'briefcase'
-    },
-    {
-        name: 'Operational Excellence',
-        price: '$2000/month',
-        description: 'Comprehensive operational improvement programs including process optimization and staff training',
-        features: ['Process Mapping', 'Lean Six Sigma Implementation', 'Staff Development'],
-        icon: 'zap'
-    },
-    {
-        name: 'Training & Development',
-        price: '$5000/program',
-        description: 'Customized training programs for healthcare professionals and administrators',
-        features: ['Leadership Training', 'Quality Workshops', 'Certification Programs'],
-        icon: 'book'
-    },
-    {
-        name: 'Executive Coaching',
-        price: '$200/hr',
-        description: 'One-on-one coaching for healthcare executives and leaders',
-        features: ['Career Development', 'Leadership Skills', 'Performance Optimization'],
-        icon: 'users'
-    }
-];
-
-// ==========================================
 // INTERACTIVE STATISTICS
 // ==========================================
 const interactiveStats = [
     { label: 'Healthcare Facilities Managed', value: '15+', color: 'from-solana-purple' },
-    { label: 'Annual Budget Oversight', value: '$50M+', color: 'from-solana-green' },
+
     { label: 'Team Members Led', value: '200+', color: 'from-solana-purple' },
     { label: 'Process Improvements', value: '40+', color: 'from-solana-green' }
 ];
@@ -109,36 +75,6 @@ const testimonials = [
 ];
 
 // ==========================================
-// RENDER SERVICE PACKAGES
-// ==========================================
-function renderServicePackages() {
-    const container = document.getElementById('servicesContainer');
-    container.innerHTML = `
-        <div class="grid md:grid-cols-2 gap-6">
-            ${servicePackages.map((pkg, idx) => `
-                <div class="glass-card p-8 rounded-xl group hover:border-solana-green/50 transition-all">
-                    <div class="flex items-start justify-between mb-4">
-                        <i data-lucide="${pkg.icon}" class="text-solana-green w-8 h-8"></i>
-                        <span class="text-solana-purple font-bold text-lg">${pkg.price}</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">${pkg.name}</h3>
-                    <p class="text-gray-400 text-sm mb-4">${pkg.description}</p>
-                    <ul class="space-y-2">
-                        ${pkg.features.map(feature => `
-                            <li class="text-xs text-gray-500 flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-solana-green rounded-full"></div>
-                                ${feature}
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `).join('')}
-        </div>
-    `;
-    lucide.createIcons();
-}
-
-// ==========================================
 // RENDER INTERACTIVE STATS
 // ==========================================
 function renderInteractiveStats() {
@@ -178,9 +114,12 @@ function renderRecruiterMatches() {
                             <span class="text-xs text-gray-400">Match Score</span>
                             <span class="text-sm font-bold text-solana-green">${match.fit}%</span>
                         </div>
-                        <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-solana-purple to-solana-green" 
-                                 style="width: ${match.fit}%; animation: slideInLeft 0.8s ease-out ${idx * 0.05}s both;"></div>
+                        <div class="relative w-full h-3 bg-gradient-to-r from-white/5 to-white/10 rounded-full overflow-hidden border border-white/10 shadow-lg">
+                            <div class="absolute inset-0 bg-gradient-to-r from-solana-purple via-solana-green to-solana-purple opacity-20 rounded-full" 
+                                 style="width: ${match.fit}%;"></div>
+                            <div class="h-full bg-gradient-to-r from-solana-purple to-solana-green rounded-full transition-all duration-700 ease-out" 
+                                 style="width: ${match.fit}%; box-shadow: 0 0 20px rgba(20, 241, 149, 0.5), inset 0 1px 2px rgba(255,255,255,0.2);" 
+                                 data-fill="${match.fit}"></div>
                         </div>
                     </div>
 
@@ -231,7 +170,6 @@ function prevTestimonial() {
 // EVENT LISTENERS
 // ==========================================
 document.addEventListener('DOMContentLoaded', function() {
-    renderServicePackages();
     renderInteractiveStats();
     renderRecruiterMatches();
     renderTestimonials();
@@ -281,5 +219,28 @@ style.textContent = `
             width: 100%;
         }
     }
+
+    @keyframes fillProgress {
+        from {
+            width: 0;
+            box-shadow: 0 0 10px rgba(20, 241, 149, 0.3);
+        }
+        to {
+            width: 100%;
+            box-shadow: 0 0 20px rgba(20, 241, 149, 0.5);
+        }
+    }
 `;
 document.head.appendChild(style);
+
+// Animate progress bars on render
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const progressBars = document.querySelectorAll('[data-fill]');
+        progressBars.forEach((bar, idx) => {
+            const fill = bar.getAttribute('data-fill');
+            bar.style.width = fill + '%';
+            bar.style.animation = `fillProgress 0.8s ease-out ${idx * 0.05}s forwards`;
+        });
+    }, 100);
+});
