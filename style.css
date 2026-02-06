@@ -449,3 +449,106 @@ section.fade-in {
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+
+/* ============================================
+   COLLECTIONS DROPDOWN STYLES
+   ============================================ */
+
+/* Dropdown Trigger Button */
+.dropdown-trigger {
+    background: none;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+.dropdown-trigger:hover #collections-arrow {
+    color: var(--primary-green);
+}
+
+/* Dropdown Menu Container */
+.dropdown-menu {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(153, 69, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(153, 69, 255, 0.1);
+    z-index: 1000;
+    animation: dropdownFadeIn 0.2s ease-out;
+}
+
+/* Dropdown Menu Items */
+.dropdown-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(90deg, rgba(153, 69, 255, 0.15), rgba(20, 241, 149, 0.05));
+    border-left: 2px solid var(--primary-green);
+    padding-left: calc(1rem - 2px);
+}
+
+/* Arrow Rotation when Dropdown is Open */
+.dropdown-trigger.active #collections-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Animation */
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   COLLECTIONS SECTION ANIMATIONS
+   ============================================ */
+
+/* Collection Card Animation - Slide Up From Bottom */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Collection Card Styles */
+.collection-card {
+    transition: all 0.3s ease;
+}
+
+.collection-card.animate {
+    animation: slideUpFadeIn 0.8s ease-out forwards;
+}
+
+.collection-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(153, 69, 255, 0.2),
+                0 0 30px rgba(20, 241, 149, 0.1);
+}
+
+/* Collection Image Container */
+.collection-card img {
+    transition: transform 0.5s ease;
+}
+
+/* Gradient Text for Section Title */
+.text-gradient {
+    background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

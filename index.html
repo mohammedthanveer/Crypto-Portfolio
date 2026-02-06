@@ -105,8 +105,41 @@
 
     <nav class="fixed top-0 w-full z-50 nav-blur">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-display font-bold text-xl tracking-wider text-white">
-                0x<span class="text-solana-purple">ANON</span>
+            <div class="flex items-center gap-6">
+                <div class="font-display font-bold text-xl tracking-wider text-white">
+                    0x<span class="text-solana-purple">ANON</span>
+                </div>
+                
+                <!-- Collections Dropdown -->
+                <div class="relative">
+                    <button id="collections-trigger" class="dropdown-trigger flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-solana-green transition-colors cursor-pointer">
+                        <span>Collections</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" id="collections-arrow"></i>
+                    </button>
+                    
+                    <div id="collections-menu" class="dropdown-menu hidden absolute top-full left-0 mt-2 w-64 rounded-xl overflow-hidden">
+                        <div class="py-2">
+                            <a href="#collection-pythenians" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Pythenians #304</div>
+                            </a>
+                            <a href="#collection-sensei" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Sensai #101</div>
+                            </a>
+                            <a href="#collection-veterans" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Veterans #918</div>
+                            </a>
+                            <a href="#collection-claynosaurz" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Claynosaurz(popkins) #5025</div>
+                            </a>
+                            <a href="#collection-waifura" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Waifura #604</div>
+                            </a>
+                            <a href="#collection-finalbosu" class="dropdown-item block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-solana-purple/20 transition-all">
+                                <div class="font-medium">Final bosu #6184</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
                 <a href="#skills" class="hover:text-solana-green transition-colors">Skills</a>
@@ -331,6 +364,88 @@
         </div>
     </section>
 
+    <!-- COLLECTIONS SECTION -->
+    <section id="collections" class="py-20 border-t border-white/10 bg-gradient-to-b from-transparent to-black/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-white text-center">
+                <span class="text-gradient">MY COLLECTIONS</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Collection 1 -->
+                <div id="collection-waifura" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="waifura.png" alt="Waifura #604" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Waifura loaded')" onerror="console.error('Failed to load waifura.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Waifura #604</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div id="collection-sensei" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="sensei.png" alt="Sensei #101" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Sensei loaded')" onerror="console.error('Failed to load sensei.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Sensei #101</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div id="collection-claynosaurz" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="claynosaurz.png" alt="Claynosaurz(popkins) #5025" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Claynosaurz loaded')" onerror="console.error('Failed to load claynosaurz.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Claynosaurz(popkins) #5025</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+
+                <!-- Collection 4 -->
+                <div id="collection-pythenians" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="pythenians.png" alt="Pythenians #304" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Pythenians loaded')" onerror="console.error('Failed to load pythenians.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Pythenians #304</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+
+                <!-- Collection 5 -->
+                <div id="collection-veterans" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="veterans.png" alt="Veterans #918" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Veterans loaded')" onerror="console.error('Failed to load veterans.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Veterans #918</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+
+                <!-- Collection 6 -->
+                <div id="collection-finalbosu" class="collection-card glass-card p-6 rounded-2xl">
+                    <div class="rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-solana-purple/10 to-solana-green/5" style="width: 100%; padding-bottom: 100%; position: relative;">
+                        <img src="finalbosu.png" alt="Final bosu #6184" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onload="console.log('Final bosu loaded')" onerror="console.error('Failed to load finalbosu.png')">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">Final bosu #6184</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4 text-solana-green"></i>
+                        <span>NFT Collection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- OLD ABOUT SECTION CONTENT - KEEPING REFERENCE STRUCTURE -->
     <section id="defi-about" class="py-24 relative hidden">
         <div class="max-w-6xl mx-auto px-6">
@@ -476,8 +591,11 @@
     </footer>
 
     <script>
-        // Initialize Icons
-        lucide.createIcons();
+        // Wait for DOM to be fully loaded before initializing
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Icons
+            lucide.createIcons();
+        });
 
         // Count Up Animation Logic
         const counters = document.querySelectorAll('.counter');
@@ -600,6 +718,82 @@
 
         init();
         animate();
+
+        // ==========================================
+        // COLLECTIONS DROPDOWN FUNCTIONALITY
+        // ==========================================
+        const collectionsTrigger = document.getElementById('collections-trigger');
+        const collectionsMenu = document.getElementById('collections-menu');
+
+        // Toggle dropdown on click
+        if (collectionsTrigger && collectionsMenu) {
+            collectionsTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = collectionsMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    collectionsMenu.classList.remove('hidden');
+                    collectionsTrigger.classList.add('active');
+                } else {
+                    collectionsMenu.classList.add('hidden');
+                    collectionsTrigger.classList.remove('active');
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!collectionsMenu.contains(e.target) && !collectionsTrigger.contains(e.target)) {
+                    collectionsMenu.classList.add('hidden');
+                    collectionsTrigger.classList.remove('active');
+                }
+            });
+
+            // Close dropdown and smoothly scroll when clicking on a collection item
+            const dropdownItems = collectionsMenu.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // Get the target collection ID from href
+                    const targetId = item.getAttribute('href');
+                    
+                    // Close dropdown
+                    collectionsMenu.classList.add('hidden');
+                    collectionsTrigger.classList.remove('active');
+                    
+                    // Smooth scroll to the collection card
+                    if (targetId && targetId !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // ==========================================
+        // COLLECTION CARDS SCROLL ANIMATION
+        // ==========================================
+        const collectionCards = document.querySelectorAll('.collection-card');
+        
+        const collectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    collectionObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        collectionCards.forEach(card => {
+            collectionObserver.observe(card);
+        });
 
         // Contact Form Handling
         const contactForm = document.getElementById('contactForm');

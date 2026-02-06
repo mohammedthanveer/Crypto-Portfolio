@@ -221,3 +221,43 @@ function loadEmailJS() {
         document.head.appendChild(script);
     });
 }
+
+// ==========================================
+// COLLECTIONS DROPDOWN FUNCTIONALITY
+// ==========================================
+const collectionsTrigger = document.getElementById('collections-trigger');
+const collectionsMenu = document.getElementById('collections-menu');
+const collectionsArrow = document.getElementById('collections-arrow');
+
+// Toggle dropdown on click
+if (collectionsTrigger && collectionsMenu) {
+    collectionsTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = collectionsMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+            collectionsMenu.classList.remove('hidden');
+            collectionsTrigger.classList.add('active');
+        } else {
+            collectionsMenu.classList.add('hidden');
+            collectionsTrigger.classList.remove('active');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!collectionsMenu.contains(e.target) && !collectionsTrigger.contains(e.target)) {
+            collectionsMenu.classList.add('hidden');
+            collectionsTrigger.classList.remove('active');
+        }
+    });
+
+    // Close dropdown when clicking on a collection item
+    const dropdownItems = collectionsMenu.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+            collectionsMenu.classList.add('hidden');
+            collectionsTrigger.classList.remove('active');
+        });
+    });
+}
